@@ -29,15 +29,15 @@ app.use(bodyParser.urlencoded({extended:true})); // bodyParser.urlencoded is use
 
 
 //bmi calculator
-app.get("/bmiCalculator",function(req,res){
+app.get("/",function(req,res){
     res.sendFile(__dirname+ "/bmiCalculator.html");
 });
 
-app.post("/bmiCalculator",function(req,res){
+app.post("/",function(req,res){
     var wt = Number(req.body.weight);
     var h = Number(req.body.height);
-    var ht = h/1000;
-    bmiVal = wt/(h*h);
+    var ht = h/100;
+    bmiVal = wt/(ht*ht);
     if (bmiVal>25){
         res.send(bmiVal+" You are overweighted!!");        
     }
